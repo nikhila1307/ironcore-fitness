@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | IRONCORE FITNESS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #090909;
+            --charcoal: #151515;
+            --gold: #C9A45C;
+            --ivory: #F5F0E8;
+            --muted: #888;
+            --border: rgba(201, 164, 92, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            background:
+                radial-gradient(
+                    circle at 50% 30%,
+                    rgba(201, 164, 92, 0.09),
+                    transparent 40%
+                ),
+                var(--black);
+            color: var(--ivory);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 440px;
+            padding: 50px 40px;
+            background: var(--charcoal);
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            animation: entrance 0.8s ease both;
+        }
+
+        @keyframes entrance {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: var(--gold);
+            font-size: 10px;
+            letter-spacing: 5px;
+        }
+
+        .divider {
+            width: 45px;
+            height: 2px;
+            margin: 35px auto;
+            background: var(--gold);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .description {
+            margin-bottom: 35px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 9px;
+            color: var(--ivory);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            outline: none;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: #0D0D0D;
+            color: var(--ivory);
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--gold);
+        }
+
+        input::placeholder {
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            margin-top: 10px;
+            border: none;
+            background: var(--gold);
+            color: var(--black);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #E0BD78;
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #loginStatus {
+            min-height: 20px;
+            margin-top: 20px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--muted);
+            font-size: 11px;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 40px 25px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <div class="logo">
+            <span>I</span> IRONCORE
+        </div>
+
+        <p class="subtitle">FITNESS CLUB</p>
+
+        <div class="divider"></div>
+
+        <h1>Welcome Back</h1>
+
+        <p class="description">
+            Sign in to access your administration panel.
+        </p>
+
+        <form id="adminLoginForm">
+
+            <div class="form-group">
+                <label for="email">ADMIN EMAIL</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">PASSWORD</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button type="submit" id="loginButton">
+                SIGN IN
+            </button>
+
+            <p id="loginStatus" role="status" aria-live="polite"></p>
+
+        </form>
+
+        <a href="index.html" class="back-link">
+            ← BACK TO WEBSITE
+        </a>
+
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+/* =========================================
+   IRONCORE ADMIN AUTHENTICATION
+========================================= */
+
+const SUPABASE_URL = "https://mnejknwihilgekxfexly.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_g_DEPPRMmFxS73U9DsMB1A_d6cYdOn8";
+
+const { createClient } = window.supabase;
+
+const supabaseClient = createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+);
+
+const ADMIN_UID = "490c5eae-68c6-43cc-9997-eb425d4035e6";
+
+const loginForm = document.getElementById("adminLoginForm");
+const loginStatus = document.getElementById("loginStatus");
+const loginButton = document.getElementById("loginButton");
+
+loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    loginButton.disabled = true;
+    loginButton.textContent = "SIGNING IN...";
+
+    loginStatus.style.color = "#C9A45C";
+    loginStatus.textContent = "Verifying your credentials...";
+
+    try {
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+                email,
+                password
+            });
+
+        if (error) throw error;
+
+        if (data.user.id !== ADMIN_UID) {
+            await supabaseClient.auth.signOut();
+
+            throw new Error("You are not authorized to access this dashboard.");
+        }
+
+        loginStatus.style.color = "#70C990";
+        loginStatus.textContent = "Login successful!";
+
+        window.location.href = "admin-dashboard.html";
+        
+
+    } catch (error) {
+        console.error("Admin login error:", error);
+
+        loginStatus.style.color = "#ff6b6b";
+        loginStatus.textContent =
+            error.message === "You are not authorized to access this dashboard."
+                ? error.message
+                : "Invalid email or password. Please try again.";
+
+    } finally {
+        loginButton.disabled = false;
+        loginButton.textContent = "SIGN IN";
+    }
+});
+</script>
+
+</body>
+</html>
